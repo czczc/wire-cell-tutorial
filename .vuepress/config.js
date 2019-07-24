@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/wire-cell-tutorial/',
   markdown: {
     lineNumbers: true,
     // config: md => {
@@ -9,8 +10,7 @@ module.exports = {
   themeConfig: {
     repo: 'czczc/wire-cell-tutorial',
     repoLabel: 'Contribute!',
-    // editLinks: true,
-    // editLinkText: 'Edit',
+    editLinks: true,
     nav: [
         { text: 'Home',link: '/' },
         { text: 'Get started', link: '/intro/' }
