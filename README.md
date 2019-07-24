@@ -6,7 +6,7 @@ tagline: Welcome to Wire-Cell
 actionText: Get started →
 actionLink: ./intro.md
 features:
-- title: "Framework"
+- title: "Toolkit"
   details: A lightweight framework dealing with wire signals and their correlations.
 - title: "Algorithm"
   details: Mathematical algorithms for LArTPC signal processing and 3D topological reconstruction.
@@ -15,12 +15,4 @@ features:
 footer: LGPL Licensed | Copyright © 2016-present
 ---
 
-<!---
-# Wire-Cell Tutorial
-
-Welcome to Wire-Cell
-
-- [Introduction](/intro/)
-- [Installation](/install/)
---->
 
