@@ -62,7 +62,11 @@ git checkout -b v3.0.3  v3.0.3 # or other tags
 ```
 
 ## wcdo
-`wcdo` is a command line tool that provides convenient methods to do stuff with Wire-Cell in a Singularity container. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/singularity.org) to get started.
+`wcdo` is a command line tool that provides convenient methods to do stuff with Wire-Cell in a Singularity container. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/wcdo.org) to get started.
+
+::: tip TIP
+I usually create a symlink at `/usr/local/bin/wcdo` to point to the [wcdo.sh](https://raw.githubusercontent.com/WireCell/wire-cell-singularity/master/wcdo.sh) file in the cloned [wire-cell-singularity](https://github.com/WireCell/wire-cell-singularity) repository.
+:::
 
 <!--
 ::: tip TIP

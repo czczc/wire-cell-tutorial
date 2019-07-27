@@ -17,7 +17,11 @@ module.exports = {
     ],
     sidebar: [
       ['/intro', 'Preface'],
-      '/install'
+      '/install',
+      '/workflow',
+      '/simulation',
+      '/noise',
+      '/decon'
     ],
     sidebarDepth: 2,
     lastUpdated: 'Last Updated'
