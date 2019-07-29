@@ -1,6 +1,8 @@
-# About this tutorial
+# Contribute to this tutorial
 
-This tutorial is created using the [VuePress](https://vuepress.vuejs.org/) static site generator. To build this tutorial own your own computer, you need to first install `node.js` and `npm` (e.g. [on ubuntu](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/)). I recommend using [nvm](https://github.com/nvm-sh/nvm) for better version control.
+This tutorial is created using the [VuePress](https://vuepress.vuejs.org/) static site generator. To contribute to the tutorial please let the site manager add you as a collaborator. Then, you can directly edit using the **"Edit this page"** link on each page.
+
+Alternatively, you can build the tutorial on your own computer. You need to first install `node.js` and `npm` (e.g. [on ubuntu](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/)). I recommend using [nvm](https://github.com/nvm-sh/nvm) for better version control.
 
 ## Install dependencies
 

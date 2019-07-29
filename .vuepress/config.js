@@ -17,7 +17,7 @@ module.exports = {
     ],
     sidebar: {
       '/appendix/': [
-        ['vuepress', 'About this tutorial']
+        ['vuepress', 'Contribute to this tutorial']
         // {
         //   title: 'Appendix',
         //   collapsable: false,
@@ -31,6 +31,7 @@ module.exports = {
         ['intro', 'Preface'],
         'install',
         'workflow',
+        'basic',
         'simulation',
         'noise',
         'decon',
