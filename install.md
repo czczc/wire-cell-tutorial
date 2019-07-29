@@ -4,7 +4,7 @@
 [[toc]]
 --->
 
-There are several different ways to install Wire-Cell Toolkit on your local computer (see, e.g. [here](https://wirecell.github.io/manual.html#outline-container-orga7919bf)). To avoid the burden of choice overloading and get you started as quickly as possible, we describe an **officially recommended** way of installation: using the [cvmfs](https://cernvm.cern.ch/) network file system and the [singularity](https://singularity.lbl.gov/) container. This way allows you to both develop Wire-Cell by itself and integrate it with other software frameworks such as LArSoft.
+There are several ways to install Wire-Cell Toolkit on your local computer (see, e.g. [here](https://wirecell.github.io/manual.html#outline-container-orga7919bf)). To avoid choice overloading and get you started as quickly as possible, we describe an **officially recommended** way of installation: using the [cvmfs](https://cernvm.cern.ch/) network file system and the [singularity](https://singularity.lbl.gov/) container. This way allows you to both develop Wire-Cell by itself and integrate it with other software frameworks such as LArSoft.
 
 ## CVMFS
 [CVMFS](https://cernvm.cern.ch/) (CernVM File System) is a utility that mounts remote directories over HTTP. CVMFS provides a simple way to distribute software binaries. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/cvmfs.org) for details of installation. For the lazy ubuntu'ers:
@@ -64,8 +64,8 @@ git checkout -b v3.0.3  v3.0.3 # or other tags
 ## wcdo
 `wcdo` is a command line tool that provides convenient methods to do stuff with Wire-Cell in a Singularity container. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/wcdo.org) to get started.
 
-::: tip TIP
-I usually create a symlink at `/usr/local/bin/wcdo` to point to the [wcdo.sh](https://raw.githubusercontent.com/WireCell/wire-cell-singularity/master/wcdo.sh) file in the cloned [wire-cell-singularity](https://github.com/WireCell/wire-cell-singularity) repository.
+::: tip
+**TIP**: I usually create a symlink at `/usr/local/bin/wcdo` to point to the [wcdo.sh](https://raw.githubusercontent.com/WireCell/wire-cell-singularity/master/wcdo.sh) file in the cloned [wire-cell-singularity](https://github.com/WireCell/wire-cell-singularity) repository.
 :::
 
 <!--

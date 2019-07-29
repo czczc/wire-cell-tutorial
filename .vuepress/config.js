@@ -15,14 +15,28 @@ module.exports = {
         { text: 'Home',link: '/' },
         { text: 'Get started', link: '/intro/' }
     ],
-    sidebar: [
-      ['/intro', 'Preface'],
-      '/install',
-      '/workflow',
-      '/simulation',
-      '/noise',
-      '/decon'
-    ],
+    sidebar: {
+      '/appendix/': [
+        ['vuepress', 'About this tutorial']
+        // {
+        //   title: 'Appendix',
+        //   collapsable: false,
+        //   children: [
+        //     ['vuepress', 'About this tutorial']
+        //   ]
+        // }
+      ],
+
+      '/': [
+        ['intro', 'Preface'],
+        'install',
+        'workflow',
+        'simulation',
+        'noise',
+        'decon',
+        ['appendix/vuepress', 'Appendix']
+      ]
+    },
     sidebarDepth: 2,
     lastUpdated: 'Last Updated'
   },
