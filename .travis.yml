@@ -11,8 +11,8 @@ branches:
   - master
 
 install:
-  - npm install -g vuepress
-  - vuepress build
+  - npm install
+  - npm run build
 
 script:
   - echo "Skipping tests"
