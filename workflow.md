@@ -14,7 +14,7 @@ $ ./wcdo-myproj.sh
 ```
 
 
-## Standalone WCT application
+## Setup environment for standalone WCT
 
 The previous step will put you inside the downloaded `sl7krb` singularity container.
 We then use the Fermilab [UPS](https://cdcvs.fnal.gov/redmine/projects/ups/wiki/Getting_Started_Using_UPS) tool to configure software dependencies:
