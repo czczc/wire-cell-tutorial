@@ -8,12 +8,9 @@ Alternatively, you can build the tutorial on your own computer. You need to firs
 
 ```bash{2-4}
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash # or newer versions
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# add the above three lines to your ~/.bashrc file
+source ~/.bashrc
 nvm install node
-npm install vuepress
+npm install -g vuepress
 ```
 
 ## Start writing

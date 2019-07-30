@@ -30,7 +30,7 @@ wcdo-ups-wct-configure-source
 setup wirecell DEVEL -q e17:prof
 wcdo-wirecell-path default
 ```
-The last two lines are necessary re-setup the wirecell UPS product to have the correct `LD_LIBRARY_PATH` and to reset the `WIRECELL_PATH`. Now test with:
+The last two lines are necessary to re-setup the wirecell UPS product to have the correct `LD_LIBRARY_PATH` and to reset the `WIRECELL_PATH`. Now test with:
 ```bash
 ./wcb -p --alltests
 ```
