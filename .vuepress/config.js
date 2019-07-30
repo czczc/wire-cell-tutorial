@@ -13,7 +13,8 @@ module.exports = {
     editLinks: true,
     nav: [
         { text: 'Home',link: '/' },
-        { text: 'Get started', link: '/intro/' }
+        { text: 'Get started', link: '/intro/' },
+        { text: 'Appendix', link: '/appendix/vuepress' }
     ],
     sidebar: {
       '/appendix/': [
