@@ -14,7 +14,7 @@ $ ./wcdo-myproj.sh
 ```
 
 
-## Setup environment for standalone WCT
+## Setup standalone WCT
 
 The previous step will put you inside the downloaded `sl7krb` singularity container.
 We then use the Fermilab [UPS](https://cdcvs.fnal.gov/redmine/projects/ups/wiki/Getting_Started_Using_UPS) tool to configure software dependencies:
@@ -39,6 +39,28 @@ If tests run, congratulations, you are ready to start real wire-cell development
 ::: tip
 **TIP**: Place some of the command lines in your `wcdo-local-myproj.rc` file to execute them automatically when you start the singularity container.
 :::
+
+## Recompile WCT
+
+If you change any core code, you need to recompile WCT using
+```bash
+./wcb
+./wcb install
+```
+. You can find out where these WCT libraries are installed through:
+```bash
+echo $LD_LIBRARY_PATH | tr : '\n' | grep wirecell
+```
+If you followed the above setup instruction, this path should be somewhere under `/wcdo/lib/ups/wirecell/DEVEL/`
+
+## Write and run tests
+
+The `test/` directory under each WCT package is the place to put your test code in. Any `.cxx` files starting with `test_` will be automatically compiled. After you modify existing test code or write a new test, you can compile it through
+```bash
+./wcb
+```
+Afterwards, you can find the compiled binary test programs under the `/wcdo/src/wct/build/` directory, and run them individually.
+
 
 ## Integrate with LArSoft
 
