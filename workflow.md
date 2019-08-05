@@ -22,7 +22,6 @@ We then use the Fermilab [UPS](https://cdcvs.fnal.gov/redmine/projects/ups/wiki/
 source /cvmfs/larsoft.opensciencegrid.org/products/setup
 wcdo-ups-init
 path-append $wcdo_ups_products PRODUCTS
-setup wirecell v0_12_3 -q e17:prof
 wcdo-ups-declare wirecell DEVEL
 setup wirecell DEVEL -q e17:prof
 wcdo-ups-wct-configure-source
@@ -39,6 +38,13 @@ If tests run, congratulations, you are ready to start real wire-cell development
 ::: tip
 **TIP**: Place some of the command lines in your `wcdo-local-myproj.rc` file to execute them automatically when you start the singularity container.
 :::
+
+## Run WCT code
+
+The WCT code is run through the main program `wire-cell` by giving it a configuration file, where all logics and configurations are set (details later).
+```bash
+wire-cell -c path/to/example.jsonnet
+```
 
 ## Recompile WCT
 
@@ -64,4 +70,40 @@ Afterwards, you can find the compiled binary test programs under the `/wcdo/src/
 
 ## Integrate with LArSoft
 
-`larwirecell` instruction to be added.
+This is only slightly more complicated than the above. I suggest you make a new directory and follow the [instruction](workflow.html#initialize-a-project) to start a new project. Place the following lines in your `wcdo-local-myproj.rc` file before executing the container:
+
+```bash
+wcdo_mrb_project_name="larsoft"
+wcdo_mrb_project_version="v08_27_00"
+wcdo_mrb_project_quals="e17:prof"
+larwirecell_version="v08_05_10"
+
+# setup ups and mrb
+source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
+wcdo-ups-init
+path-append $wcdo_ups_products PRODUCTS
+wcdo-mrb-init
+wcdo-mrb-add-source larwirecell test_wc $larwirecell_version
+
+# build wct
+wcdo-ups-declare wirecell DEVELMRB
+setup wirecell DEVELMRB -q e17:prof
+wcdo-ups-wct-configure-source
+./wcb -p --notests install
+setup wirecell DEVELMRB -q e17:prof
+wcdo-wirecell-path default
+```
+
+Note that you need to define the current larsoft and larewirecell versions at the top, which you can find [here](https://cdcvs.fnal.gov/redmine/projects/larsoft/repository/revisions/master/entry/ups/product_deps) and [here](https://cdcvs.fnal.gov/redmine/projects/larwirecell/repository/revisions/master/entry/ups/product_deps) and change accordingly.
+
+Next you need to build `larwirecell` against the current wct on your local computer. First, edit the `/wcdo/src/mrb/srcs/larwirecell/ups/product_deps` file and change the line `wirecell vxx_xx_xx` to `wirecell DEVELMRB`. Then run the following commands:
+```bash
+mrbsetenv
+mrb i # only for first time build
+mrbslp
+```
+If everything compiles fine, you now have a working environment to develop and test **WCT, larwirecell and LArSoft** code. Note that next time you start up the container, you only need to run `mrbsetenv` and `mrbslp` to setup the environment.
+
+::: tip
+**TIP**: You can use the `ninja` compiler instead of the default `make` to speed up the compiling. To do so, first set up ninja using `setup ninja v1_8_2`. Then, replace `mrb i` with `mrb i --generator ninja`.
+:::
