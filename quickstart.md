@@ -16,13 +16,13 @@ The data file has a special root format, one can check the data structure for an
 $ lar -n1 --nskip 0 -c eventdump.fcl np04_raw_run005145_0022_dl10.root
 ```
 
-### Signal processing
-To perform the signal processing and 3D imaging, one calls the wire-cell configuration through larsoft fhicl configuration `wcls-raw-to-sig` and `wcls-sig-to-img` , respectively.
+### Signal processing and *magnify* display
+To perform the signal processing, one can use the wire-cell configuration **raw-to-sig.jsonnet** and call it from the larsoft fhicl configuration **raw-to-sig.fcl**.
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/Quickstart/raw-to-sig.fcl np04_raw_run005145_0022_dl10.root
 ```
 
-One can have two output files: **protodune-data-check.root** and **output.root**. The former records the raw waveform (**raw**, after noise filtering)and the deconvolved waveform (**gauss**) in ROOT TH2F, while the latter keeps the signal processing result in a LArSoft format. You can check the data structure via `eventdump` as followed.
+There are two output files: **protodune-data-check.root** and **output.root**. The former records the raw waveform (**raw**, after noise filtering)and the deconvolved waveform (**gauss**) in ROOT TH2F, while the latter keeps the signal processing result in a LArSoft format. You can check the data structure via `eventdump` as followed.
 
 ```bash
 PROCESS NAME | MODULE LABEL. | PRODUCT INSTANCE NAME | DATA PRODUCT TYPE............ | .SIZE
@@ -34,7 +34,7 @@ wclsraw2sig. | raw2sig...... | gauss................ | std::vector<recob::Wire>.
 ```
 
 ::: tip
-**TIP**: A bash function `find-fhicl` is useful to locate a fhicl file. For example, `find-fhicl wcls-raw-to-sig.fcl`. You can copy into your `wcdo-local-myproj.sh`.
+**TIP**: A bash function `find-fhicl` is useful to locate a fhicl file. For example, `find-fhicl raw-to-sig.fcl`. You can copy this to your **wcdo-local-myproj.sh**.
 :::
 ```bash
 find-fhicl(){
@@ -43,21 +43,23 @@ find-fhicl(){
 }
 ``` 
 
-### 3D imaging and visulization
+### 3D imaging and *bee* display
+It is easy to perform 3D imaging on the deconvolved charge from the event above.
 
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/wcls-sig-to-img.fcl output.root 
 ```
-After the above execution, the resulting 3D blobs are saved in a json format: **clusters-apa?-0000.json**. 
-
-To visulize the imaging blobs, one needs to use an indepedent python package **wire-cell-python**, which runs in an virtual environment.
+The thus obtained 3D blobs are saved in a json format: **clusters-apa?-0000.json**. One can later convert this format to fit the *bee* display with an indepedent python package **wire-cell-python**. One should note that this package runs in a [virtual environment](https://docs.python.org/3/library/venv.html).
 ```bash
 git clone https://github.com/WireCell/wire-cell-python.git
 python3 -m venv wire-cell-python
 source wire-cell-python/bin/activate
-python setup.py develop
+cd wire-cell-python
+python setup.py develop # first time deployment, can ignore next time
 ```
-If some packages are complained not installed, try `pip install` in the virtual environment. For example, `pip install numpy`.
+If some packages are complained to be not installed, try `pip install`, e.g., `pip install numpy`.
+
+Now you can merge the json files into a Bee format.
 
 ```bash
 rm -rf data
@@ -68,7 +70,7 @@ zip -r tmp data
 ```
 Use "-s uniform -d 10" to randomly sample each blob with 10 points per cm^3 instead of just a single blob-center point.  You can also manually tell Bee the run/subrun/event numbers by adding "--rse 1 2 3".
 
-Afterward, you can upload and see your bee-formatted data (**tmp.zip**) via https://www.phy.bnl.gov/twister/bee. For example, [here](https://www.phy.bnl.gov/twister/bee/set/f3ee077a-756d-4aa8-bb29-cb5bdfb4cedf/event/0/) is the 3D imaging result for the event above.
+Finally, you can upload the Bee format file through the Bee display [portal webpage](https://www.phy.bnl.gov/twister/bee). For example, [here](https://www.phy.bnl.gov/twister/bee/set/f3ee077a-756d-4aa8-bb29-cb5bdfb4cedf/event/0/) is the 3D imaging result for the event above.
 
 <!--
 For a comparison, this is the reconstruction from pandora
