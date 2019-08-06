@@ -32,6 +32,7 @@ module.exports = {
         ['intro', 'Preface'],
         'install',
         'workflow',
+        'quickstart',
         'basic',
         'simulation',
         'noise',
