@@ -68,9 +68,9 @@ The `test/` directory under each WCT package is the place to put your test code 
 Afterwards, you can find the compiled binary test programs under the `/wcdo/src/wct/build/` directory, and run them individually.
 
 
-## Integrate with LArSoft
+## Setup WCT with LArSoft
 
-This is only slightly more complicated than the above. I suggest you make a new directory and follow the [instruction](workflow.html#initialize-a-project) to start a new project. Place the following lines in your `wcdo-local-myproj.rc` file before executing the container:
+Assuming you are familiar with LArSoft, this is only slightly more complicated than the above. I suggest you make a new directory and follow the [instruction](workflow.html#initialize-a-project) to start a new project. Taking **DUNE** as an example, place the following lines in your `wcdo-local-myproj.rc` file before executing the container:
 
 ```bash
 wcdo_mrb_project_name="larsoft"
@@ -94,7 +94,7 @@ setup wirecell DEVELMRB -q e17:prof
 wcdo-wirecell-path default
 ```
 
-Note that you need to define the current larsoft and larewirecell versions at the top, which you can find [here](https://cdcvs.fnal.gov/redmine/projects/larsoft/repository/revisions/master/entry/ups/product_deps) and [here](https://cdcvs.fnal.gov/redmine/projects/larwirecell/repository/revisions/master/entry/ups/product_deps) and change accordingly.
+Note that you need to define the larsoft and larewirecell versions at the top. You can find the current versions [here](https://cdcvs.fnal.gov/redmine/projects/larsoft/repository/revisions/master/entry/ups/product_deps) and [here](https://cdcvs.fnal.gov/redmine/projects/larwirecell/repository/revisions/master/entry/ups/product_deps), and change accordingly.
 
 Next you need to build `larwirecell` against the current wct on your local computer. First, edit the `/wcdo/src/mrb/srcs/larwirecell/ups/product_deps` file and change the line `wirecell vxx_xx_xx` to `wirecell DEVELMRB`. Then run the following commands:
 ```bash

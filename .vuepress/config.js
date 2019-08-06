@@ -36,6 +36,7 @@ module.exports = {
         'simulation',
         'noise',
         'decon',
+        'refs',
         ['appendix/vuepress', 'Appendix']
       ]
     },
