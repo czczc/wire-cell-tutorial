@@ -39,7 +39,7 @@ module.exports = {
         ['appendix/vuepress', 'Appendix']
       ]
     },
-    sidebarDepth: 2,
+    sidebarDepth: 1,
     lastUpdated: 'Last Updated'
   },
   title: "Wire-Cell Tutorial",
