@@ -3,14 +3,8 @@
 [[toc]]
 
 ### Get data
-Let's use protoDUNE-SP as an example. First, copy a raw data file to your working directory.
-```bash
-$ wget https://www.phy.bnl.gov/~wgu/wire-cell-tutorial/data/np04_raw_run005145_0022_dl10.root
-```
-Alternatively, if you have properly installed the `cvmfs` and the `kx509` environment, you can also get through gsiftp.
-```bash
-$ ifdh cp -D gsiftp://fndca1.fnal.gov:2811/pnfs/fnal.gov/usr/dune/tape_backed/dunepro/protodune/np04/beam/detector/None/raw/06/61/29/25/np04_raw_run005145_0022_dl10.root .
-```
+Let's use **ProtoDUNE-SP** as an example. To look at raw data, you need to [setup WCT with LArSoft](/workflow.html#setup-wct-with-larsoft) first. Then, you can copy a data file using `ifdh cp -D gsiftp://url/to/raw_data .` to your local directory. Note that this requires you have set up Kerberos authentication already. If not, you can `wget` an example (~7GB) data file [here](https://www.phy.bnl.gov/~wgu/wire-cell-tutorial/data/np04_raw_run005145_0022_dl10.root) ([gsiftp link](gsiftp://fndca1.fnal.gov:2811/pnfs/fnal.gov/usr/dune/tape_backed/dunepro/protodune/np04/beam/detector/None/raw/06/61/29/25/np04_raw_run005145_0022_dl10.root) of the same file).
+  
 
 ### Check data structure
 The data file has a special root format, one can check the data structure for an event through a larsoft fhicl `eventdump`.

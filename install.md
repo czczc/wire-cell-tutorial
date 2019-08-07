@@ -6,7 +6,7 @@
 
 There are several ways to install Wire-Cell Toolkit on your local computer (see, e.g. [here](https://wirecell.github.io/manual.html#outline-container-orga7919bf)). To avoid choice overloading and get you started as quickly as possible, we describe an **officially recommended** way of installation: using the [cvmfs](https://cernvm.cern.ch/) network file system and the [singularity](https://singularity.lbl.gov/) container. This way allows you to both develop Wire-Cell by itself and integrate it with other software frameworks such as LArSoft.
 
-## CVMFS
+## Install CVMFS
 [CVMFS](https://cernvm.cern.ch/) (CernVM File System) is a utility that mounts remote directories over HTTP. CVMFS provides a simple way to distribute software binaries. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/cvmfs.org) for details of installation. For the lazy ubuntu'ers:
 
 ```bash
@@ -37,7 +37,7 @@ cvmfs_config probe
 ```
 , and you should see **three** `Probing ... OK` messages.
 
-## Singularity
+## Install Singularity
 
 [Singularity](https://singularity.lbl.gov/) is a lightweight container that provides an operating-system level virtualization. It is popular in the world of scientific high-performance computing (HPC). For Wire-Cell development, we use singularity to provide a virtual [scientific linux](https://www.scientificlinux.org/) environment. Follow [here](https://sylabs.io/guides/3.0/user-guide/installation.html) for detailed installation instructions. For the lazy ubuntu'ers, first, install the `go` language:
 ```bash
@@ -61,7 +61,7 @@ git checkout -b v3.0.3  v3.0.3 # or other tags
   sudo make -C ./builddir install
 ```
 
-## wcdo
+## Use wcdo
 `wcdo` is a command line tool that provides convenient methods to do stuff with Wire-Cell in a Singularity container. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/wcdo.org) to get started, or see the [next section](workflow) for example workflows.
 
 <!-- ::: tip
