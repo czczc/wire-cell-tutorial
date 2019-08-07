@@ -12,27 +12,25 @@ module.exports = {
     repoLabel: 'Contribute!',
     editLinks: true,
     nav: [
-        { text: 'Home',link: '/' },
-        { text: 'Get started', link: '/intro/' },
+        { text: 'Home',link: '/intro' },
+        { text: 'Quick starts', link: '/quickstart/' },
         { text: 'Appendix', link: '/appendix/vuepress' }
     ],
     sidebar: {
       '/appendix/': [
         ['vuepress', 'Contribute to this tutorial']
-        // {
-        //   title: 'Appendix',
-        //   collapsable: false,
-        //   children: [
-        //     ['vuepress', 'About this tutorial']
-        //   ]
-        // }
+      ],
+
+      '/quickstart/': [
+        'explore-data',
+        'write-dfp'
       ],
 
       '/': [
         ['intro', 'Preface'],
         'install',
         'workflow',
-        'quickstart',
+        ['quickstart/explore-data', 'Quick Starts'],
         'basic',
         'simulation',
         'noise',

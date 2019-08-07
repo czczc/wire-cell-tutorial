@@ -77,9 +77,12 @@ wcdo_mrb_project_name="larsoft"
 wcdo_mrb_project_version="v08_27_00"
 wcdo_mrb_project_quals="e17:prof"
 larwirecell_version="v08_05_10"
+dunetpc_version="v08_27_00"
 
 # setup ups and mrb
 source /cvmfs/dune.opensciencegrid.org/products/dune/setup_dune.sh
+setup dunetpc $dunetpc_version -q $wcdo_mrb_project_quals
+
 wcdo-ups-init
 path-append $wcdo_ups_products PRODUCTS
 wcdo-mrb-init
@@ -94,7 +97,7 @@ setup wirecell DEVELMRB -q e17:prof
 wcdo-wirecell-path default
 ```
 
-Note that you need to define the larsoft and larewirecell versions at the top. You can find the current versions [here](https://cdcvs.fnal.gov/redmine/projects/larsoft/repository/revisions/master/entry/ups/product_deps) and [here](https://cdcvs.fnal.gov/redmine/projects/larwirecell/repository/revisions/master/entry/ups/product_deps), and change accordingly.
+Note that you need to define the several package versions at the top. You can find the current versions here: [larsoft](https://cdcvs.fnal.gov/redmine/projects/larsoft/repository/revisions/master/entry/ups/product_deps), [larwirecell](https://cdcvs.fnal.gov/redmine/projects/larwirecell/repository/revisions/master/entry/ups/product_deps), [dunetpc](https://cdcvs.fnal.gov/redmine/projects/dunetpc/repository/revisions/master/entry/ups/product_deps), and change accordingly.
 
 Next you need to build `larwirecell` against the current wct on your local computer. First, edit the `/wcdo/src/mrb/srcs/larwirecell/ups/product_deps` file and change the line `wirecell vxx_xx_xx` to `wirecell DEVELMRB`. Then run the following commands:
 ```bash

@@ -1,7 +1,9 @@
-# Quick starts
+# Explore Real Data
 
-## Explore real data from protoDUNE-SP
-First, copy a raw data file to your working directory.
+[[toc]]
+
+### Get data
+Let's use protoDUNE-SP as an example. First, copy a raw data file to your working directory.
 ```bash
 $ wget https://www.phy.bnl.gov/~wgu/wire-cell-tutorial/data/np04_raw_run005145_0022_dl10.root
 ```
@@ -41,13 +43,13 @@ find-fhicl(){
   fhicl_file=$1
   for path in `echo $FHICL_FILE_PATH  | sed -e 's/:/\n/g'`;do find $path -name "$fhicl_file"  2>/dev/null;done
 }
-``` 
+```
 
 ### 3D imaging and *bee* display
 It is easy to perform 3D imaging on the deconvolved charge from the event above.
 
 ```bash
-lar -n1 -c pgrapher/experiment/pdsp/wcls-sig-to-img.fcl output.root 
+lar -n1 -c pgrapher/experiment/pdsp/wcls-sig-to-img.fcl output.root
 ```
 The thus obtained 3D blobs are saved in a json format: **clusters-apa?-0000.json**. One can later convert this format to fit the *bee* display with an indepedent python package **wire-cell-python**. One should note that this package runs in a [virtual environment](https://docs.python.org/3/library/venv.html).
 ```bash
@@ -78,6 +80,6 @@ https://www.phy.bnl.gov/twister/bee/set/protodune-gallery/event/0/
 -->
 
 
-## how to write some new code in dfp (for example:  print out detector geometry)?
+<!-- ## how to write some new code in dfp (for example:  print out detector geometry)?
 ## how to simulate a simple track?
-## how to simulate a real event with input from g4?
+## how to simulate a real event with input from g4? -->
