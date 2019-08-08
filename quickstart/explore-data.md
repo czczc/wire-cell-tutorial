@@ -33,33 +33,32 @@ wclsraw2sig. | raw2sig...... | gauss................ | std::vector<recob::Wire>.
 - `protodune-data-check.root`: A large file that records both the waveforms after noise filtering (*hx_raw*) and after deconvolution (*hx_gauss*) in TH2F. They can be looked at using simple ROOT scripts, or using the [Magnify](https://github.com/BNLIF/Magnify-protodune) waveform display tool.
 
 ## 3D imaging (Experimental)
-It is easy to perform 3D imaging on the deconvolved charge from the event above.
 
+The 3D imaging code in WCT is still under development (algorithms are being ported from the Wire-Cell Prototype) and the performance may not be optimal yet. Nonetheless, 3D imaging can be performed on the previous deconvoluted signals as following:
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/wcls-sig-to-img.fcl output.root
 ```
-The thus obtained 3D blobs are saved in a json format: **clusters-apa?-0000.json**. One can later convert this format to fit the *bee* display with an indepedent python package **wire-cell-python**. One should note that this package runs in a [virtual environment](https://docs.python.org/3/library/venv.html).
+The obtained 3D image are saved in a json format: **clusters-apa?-0000.json**, one per APA. One can later convert this format to fit the Bee 3D display with an independent python package **wire-cell-python**. One should note that this package runs in a [virtual environment](https://docs.python.org/3/library/venv.html). To setup, outside of the singularity container, do
 ```bash
+sudo apt-get install python3-venv
 git clone https://github.com/WireCell/wire-cell-python.git
-python3 -m venv wire-cell-python
-source wire-cell-python/bin/activate
+python3 -m venv wcpy
+source wcpy/bin/activate
+pip install numpy vtk shapely
 cd wire-cell-python
 python setup.py develop # first time deployment, can ignore next time
 ```
-If some packages are complained to be not installed, try `pip install`, e.g., `pip install numpy`.
 
-Now you can merge the json files into a Bee format.
-
+Now you can merge the json files into a Bee format through a python script which you can find at `wire-cell-python/test/wct-img-2-bee.py`.
 ```bash
-rm -rf data
-mkdir -p data/0
-wirecell-img bee-blobs -s center --rse 5145 0 26918 -o data/0/0-junk.json clusters-apa?-0000.json
-rm tmp.zip
-zip -r tmp data
+python wct-img-2-bee.py 'clusters-apa*.json'
 ```
-Use "-s uniform -d 10" to randomly sample each blob with 10 points per cm^3 instead of just a single blob-center point.  You can also manually tell Bee the run/subrun/event numbers by adding "--rse 1 2 3".
 
-Finally, you can upload the Bee format file through the Bee display [portal webpage](https://www.phy.bnl.gov/twister/bee). For example, [here](https://www.phy.bnl.gov/twister/bee/set/f3ee077a-756d-4aa8-bb29-cb5bdfb4cedf/event/0/) is the 3D imaging result for the event above.
+::: tip
+wct-img-2-bee.py is a wrapper of the original `wirecell-img` script. You can use "-s uniform -d 10" to randomly sample each blob with 10 points per cm^3 instead of just a single blob-center point. You can also manually tell Bee the run/subrun/event numbers by adding "--rse 1 2 3".
+:::
+
+Finally, you can upload the `upload.zip` file you just created to the [Bee 3D display](https://www.phy.bnl.gov/twister/bee). For example, [here](https://www.phy.bnl.gov/twister/bee/set/f3ee077a-756d-4aa8-bb29-cb5bdfb4cedf/event/0/) is the 3D imaging result of the example event.
 
 ## Common issues and solutions
 
