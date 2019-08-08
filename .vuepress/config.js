@@ -23,7 +23,8 @@ module.exports = {
 
       '/quickstart/': [
         'explore-data',
-        'write-dfp'
+        'write-dfp',
+        'sim-track'
       ],
 
       '/': [
