@@ -13,7 +13,7 @@ module.exports = {
     editLinks: true,
     nav: [
         { text: 'Home',link: '/intro' },
-        { text: 'Quick starts', link: '/quickstart/' },
+        { text: 'Quick starts', link: '/quickstart/explore-data' },
         { text: 'Appendix', link: '/appendix/vuepress' }
     ],
     sidebar: {
@@ -32,9 +32,9 @@ module.exports = {
         'workflow',
         ['quickstart/explore-data', 'Quick Starts'],
         'basic',
-        'simulation',
-        'noise',
-        'decon',
+        // 'simulation',
+        // 'noise',
+        // 'decon',
         'refs',
         ['appendix/vuepress', 'Appendix']
       ]

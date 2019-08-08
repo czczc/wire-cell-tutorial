@@ -1,4 +1,4 @@
-# Example Workflows
+# Typical Workflows
 
 Depending on your purpose, there are different workflows that you can follow. For details, see [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/wcdo.org).
 

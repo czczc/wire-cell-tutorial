@@ -10,15 +10,18 @@ The raw data file has a special root format that contains larsoft objects. You c
 $ lar -n1 --nskip 0 -c eventdump.fcl /path/to/raw_data.root
 ```
 
-## Signal processing and *magnify* display
-To perform the signal processing, one can use the wire-cell configuration **raw-to-sig.jsonnet** and call it from the larsoft fhicl configuration **raw-to-sig.fcl**.
+## Run signal processing
+The following command performs the signal processing on the raw data using a fhicl configuration `raw-to-sig.fcl`:
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/Quickstart/raw-to-sig.fcl /path/to/raw_data.root
 ```
 
-There are two output files: **protodune-data-check.root** and **output.root**. The former records the raw waveform (**raw**, after noise filtering)and the deconvolved waveform (**gauss**) in ROOT TH2F, while the latter keeps the signal processing result in a LArSoft format. You can check the data structure via `eventdump` as followed.
+There are two output files:
+
+- `output.root`: A small file that only stores the deconvoluted signals in LArSoft objects. *Eventdump* shows its data structure:
 
 ```bash
+$ lar -n1 --nskip 0 -c eventdump.fcl output.root
 PROCESS NAME | MODULE LABEL. | PRODUCT INSTANCE NAME | DATA PRODUCT TYPE............ | .SIZE
 DAQ......... | daq.......... | ContainerFELIX....... | std::vector<artdaq::Fragment> | ....?
 DAQ......... | daq.......... | ContainerTPC......... | std::vector<artdaq::Fragment> | ....?
@@ -27,17 +30,9 @@ wclsraw2sig. | tpcrawdecoder | daq.................. | std::vector<raw::RawDigit
 wclsraw2sig. | raw2sig...... | gauss................ | std::vector<recob::Wire>..... | 15360
 ```
 
-::: tip
-**TIP**: A bash function `find-fhicl` is useful to locate a fhicl file. For example, `find-fhicl raw-to-sig.fcl`. You can copy this to your **wcdo-local-myproj.sh**.
-:::
-```bash
-find-fhicl(){
-  fhicl_file=$1
-  for path in `echo $FHICL_FILE_PATH  | sed -e 's/:/\n/g'`;do find $path -name "$fhicl_file"  2>/dev/null;done
-}
-```
+- `protodune-data-check.root`: A large file that records both the waveforms after noise filtering (*hx_raw*) and after deconvolution (*hx_gauss*) in TH2F. They can be looked at using simple ROOT scripts, or using the [Magnify](https://github.com/BNLIF/Magnify-protodune) waveform display tool.
 
-## 3D imaging and *bee* display
+## 3D imaging (Experimental)
 It is easy to perform 3D imaging on the deconvolved charge from the event above.
 
 ```bash
@@ -76,6 +71,15 @@ The file may not be in your `$FHICL_FILE_PATH` or `$WIRECELL_PATH`. In particula
 ```bash
 export WIRECELL_PATH=/wcdo/src/wct/cfg:$WIRECELL_PATH
 export FHICL_FILE_PATH=$WIRECELL_PATH:$FHICL_FILE_PATH
+```
+::: tip
+**TIP**: A bash function `find-fhicl` is useful to locate a fhicl file. For example, `find-fhicl raw-to-sig.fcl`. You can copy this to your **wcdo-local-myproj.rc**.
+:::
+```bash
+find-fhicl(){
+  fhicl_file=$1
+  for path in `echo $FHICL_FILE_PATH  | sed -e 's/:/\n/g'`;do find $path -name "$fhicl_file"  2>/dev/null;done
+}
 ```
 
 
