@@ -1,8 +1,8 @@
 ---
 home: true
-heroText: Wire-Cell Tutorial
+heroText: Learning Wire-Cell
 heroImage: /img/head.png
-tagline: Welcome to Wire-Cell
+tagline: A BEGINNER'S GUIDE
 actionText: Get started →
 actionLink: ./intro.md
 features:

@@ -9,10 +9,10 @@ module.exports = {
   },
   themeConfig: {
     repo: 'czczc/wire-cell-tutorial',
-    repoLabel: 'Contribute!',
+    repoLabel: 'GitHub',
     editLinks: true,
     nav: [
-        { text: 'Home',link: '/intro' },
+        { text: 'Book',link: '/intro' },
         { text: 'Quick starts', link: '/quickstart/explore-data' },
         { text: 'Appendix', link: '/appendix/vuepress' }
     ],
@@ -42,6 +42,6 @@ module.exports = {
     sidebarDepth: 1,
     lastUpdated: 'Last Updated'
   },
-  title: "Wire-Cell Tutorial",
+  title: "Learning Wire-Cell",
   description: "Welcome to Wire-Cell"
 }
