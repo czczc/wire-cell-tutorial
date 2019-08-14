@@ -33,7 +33,7 @@ wirecell-pgraph dotify --jpath -1 --no-params a.json flow-simple.pdf
 
 Ignoring the several *Magnifysink* nodes which outputs ROOT histograms for debugging, this graph is rather simple and clearly show how the data from 6 APAs are fanned out to be processed individually with the *OminbusNoisefilter* and *OminbusSigProc* nodes, and merged back into the stream after signal processing.
 
-If you omit the `--no-params` option, the output will also contain all the configuration parameter values, resulting a much detailed graph:
+If you omit the `--no-params` option, the output will also contain all the configuration parameter values, resulting a much detailed graph useful for debugging:
 
 ![flow-simple](./img/flow-full.png)
 

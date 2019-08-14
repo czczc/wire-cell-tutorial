@@ -18,7 +18,8 @@ module.exports = {
     ],
     sidebar: {
       '/appendix/': [
-        ['vuepress', 'Contribute to this tutorial']
+        ['vuepress', 'Contribute to this tutorial'],
+        'software'
       ],
 
       '/quickstart/': [
