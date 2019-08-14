@@ -12,14 +12,14 @@ module.exports = {
     repoLabel: 'GitHub',
     editLinks: true,
     nav: [
-        { text: 'Book',link: '/intro' },
+        { text: 'Main',link: '/intro' },
         { text: 'Quick starts', link: '/quickstart/explore-data' },
-        { text: 'Appendix', link: '/appendix/vuepress' }
+        { text: 'Appendix', link: '/appendix/software' }
     ],
     sidebar: {
       '/appendix/': [
-        ['vuepress', 'Contribute to this tutorial'],
-        'software'
+        'software',
+        ['vuepress', 'Contribute to this tutorial']
       ],
 
       '/quickstart/': [
@@ -39,7 +39,7 @@ module.exports = {
         // 'noise',
         // 'decon',
         'refs',
-        ['appendix/vuepress', 'Appendix']
+        ['appendix/software', 'Appendix']
       ]
     },
     sidebarDepth: 1,

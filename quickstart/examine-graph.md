@@ -6,7 +6,7 @@ Wire-Cell follows the *dataflow programming* paradigm that models a program as a
 
 ## Dump configurations
 
-We can visualize the dataflow graph, which is called **pgraph** in Wire-Cell, to better understand how the program flows. First, we can dump all the configuration into a single *json* file
+We can visualize the dataflow graph, called [pgraph](https://github.com/WireCell/wire-cell-cfg/tree/master/pgrapher) in Wire-Cell, to better understand how the program runs. First, we can dump all the configuration into a single *json* file
 
 ```bash
 jsonnet -V reality=data -V raw_input_label=daq \
