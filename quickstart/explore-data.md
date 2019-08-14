@@ -11,7 +11,7 @@ $ lar -n1 --nskip 0 -c eventdump.fcl /path/to/raw_data.root
 ```
 
 ## Run signal processing
-The following command performs the signal processing on the raw data using a fhicl configuration `raw-to-sig.fcl`:
+The following command performs Wire-Cell signal processing on the raw data using a fhicl configuration `raw-to-sig.fcl`:
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/Quickstart/raw-to-sig.fcl /path/to/raw_data.root
 ```
@@ -34,11 +34,11 @@ wclsraw2sig. | raw2sig...... | gauss................ | std::vector<recob::Wire>.
 
 ## 3D imaging (Experimental)
 
-The 3D imaging code in WCT is still under development (algorithms are being ported from the Wire-Cell Prototype) and the performance may not be optimal yet. Nonetheless, 3D imaging can be performed on the previous deconvoluted signals as following:
+The 3D imaging code in WCT is still under development (algorithms are being ported from the Wire-Cell Prototype) and the performance may not be optimal yet. Nonetheless, 3D imaging can be performed on the previous deconvoluted signals as follows:
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/wcls-sig-to-img.fcl output.root
 ```
-The obtained 3D image are saved in a json format: **clusters-apa?-0000.json**, one per APA. One can later convert this format to fit the Bee 3D display with an independent python package **wire-cell-python**. One should note that this package runs in a [virtual environment](https://docs.python.org/3/library/venv.html). To setup, outside of the singularity container, do
+The obtained 3D image are saved in a json format: **clusters-apa?-0000.json**, one per APA. You can later convert this format to fit the Bee 3D display with an independent python package **wire-cell-python**. Note that this package runs in a [virtual environment](https://docs.python.org/3/library/venv.html). To setup, outside of the singularity container, do
 ```bash
 sudo apt-get install python3-venv
 git clone https://github.com/WireCell/wire-cell-python.git

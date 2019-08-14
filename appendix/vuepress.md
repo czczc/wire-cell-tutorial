@@ -10,7 +10,7 @@ Alternatively, you can build the tutorial on your own computer. You need to firs
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash # or newer versions
 source ~/.bashrc
 nvm install node
-npm install -g vuepress
+npm install
 ```
 
 ## Start writing
@@ -18,7 +18,7 @@ npm install -g vuepress
 ```bash
 git clone https://github.com/czczc/wire-cell-tutorial
 cd wire-cell-tutorial
-vuepress dev
+npm run dev
 ```
 
 Now start editing the markdown files, and you should see changes at `http://localhost:8080/` . Once everything looks fine, you should commit the changes to GitHub and wait for Travis-CI to rebuild the site.

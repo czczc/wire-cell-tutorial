@@ -23,6 +23,7 @@ module.exports = {
 
       '/quickstart/': [
         'explore-data',
+        'examine-graph',
         'write-dfp',
         'sim-track'
       ],
