@@ -13,17 +13,19 @@ module.exports = {
     editLinks: true,
     logo: "/img/logo.png",
     nav: [
-        { text: 'Book',link: '/intro' },
+        { text: 'Main',link: '/intro' },
         { text: 'Quick starts', link: '/quickstart/explore-data' },
-        { text: 'Appendix', link: '/appendix/vuepress' }
+        { text: 'Appendix', link: '/appendix/software' }
     ],
     sidebar: {
       '/appendix/': [
+        'software',
         ['vuepress', 'Contribute to this tutorial']
       ],
 
       '/quickstart/': [
         'explore-data',
+        'examine-graph',
         'write-dfp',
         'sim-track'
       ],
@@ -38,7 +40,7 @@ module.exports = {
         // 'noise',
         // 'decon',
         'refs',
-        ['appendix/vuepress', 'Appendix']
+        ['appendix/software', 'Appendix']
       ]
     },
     sidebarDepth: 1,
