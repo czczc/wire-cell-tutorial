@@ -11,6 +11,7 @@ module.exports = {
     repo: 'czczc/wire-cell-tutorial',
     repoLabel: 'GitHub',
     editLinks: true,
+    logo: "/img/logo.png",
     nav: [
         { text: 'Book',link: '/intro' },
         { text: 'Quick starts', link: '/quickstart/explore-data' },
@@ -44,5 +45,5 @@ module.exports = {
     lastUpdated: 'Last Updated'
   },
   title: "Learning Wire-Cell",
-  description: "Welcome to Wire-Cell"
+  description: "Welcome to Wire-Cell",
 }
