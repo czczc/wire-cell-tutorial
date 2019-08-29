@@ -11,9 +11,9 @@ $ lar -n1 --nskip 0 -c eventdump.fcl /path/to/raw_data.root
 ```
 
 ## Run signal processing
-The following command performs Wire-Cell signal processing on the raw data using a fhicl configuration `raw-to-sig.fcl`:
+The following command performs Wire-Cell signal processing on the raw data using a fhicl configuration `wcls-raw-to-sig.fcl`:
 ```bash
-lar -n1 -c pgrapher/experiment/pdsp/Quickstart/raw-to-sig.fcl /path/to/raw_data.root
+lar -n1 -c pgrapher/experiment/pdsp/wcls-raw-to-sig.fcl /path/to/raw_data.root
 ```
 
 There are two output files:
@@ -72,7 +72,7 @@ export WIRECELL_PATH=/wcdo/src/wct/cfg:$WIRECELL_PATH
 export FHICL_FILE_PATH=$WIRECELL_PATH:$FHICL_FILE_PATH
 ```
 ::: tip
-**TIP**: A bash function `find-fhicl` is useful to locate a fhicl file. For example, `find-fhicl raw-to-sig.fcl`. You can copy this to your **wcdo-local-myproj.rc**.
+**TIP**: A bash function `find-fhicl` is useful to locate a fhicl file. For example, `find-fhicl wcls-raw-to-sig.fcl`. You can copy this to your **wcdo-local-myproj.rc**.
 :::
 ```bash
 find-fhicl(){
