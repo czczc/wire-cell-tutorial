@@ -62,13 +62,14 @@ SinglesGen.. | TriggerResults | ..................... | art::TriggerResults.....
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/Quickstart/protoDUNE_g4_wirecell.fcl gen_protoDune_pion_7p0GeV_mono.root
 ```
+The Geant4 simulation above requires a photon library data file in a special CVMFS repository (/cvmfs/dune.osgstorage.org/pnfs/fnal.gov/usr/dune/persistent/stash/PhotonPropagation/LibraryData/lib_Protodunev7.root). You have two options to access.
+1. Configure the proxy for `dune.osgstorage.gov` by following the instruction in [Install CVMFS](../install)
+2. Download the [PhotonPropagation.tar.gz](https://www.phy.bnl.gov/~wgu/wire-cell-tutorial/data/sim/PhotonPropagation.tar.gz), unpack it and set the environment properly to make the directory `PhotonPropagation` available to LArSoft. For example,
+```bash
+export FW_SEARCH_PATH=$(pwd):$FW_SEARCH_PATH
+```
 
-/cvmfs/dune.osgstorage.org/pnfs/fnal.gov/usr/dune/persistent/stash/PhotonPropagation/LibraryData/lib_Protodunev7.root
-
-<!-- PhotonPropagation.tar.gz -->
-<!-- export FW_SEARCH_PATH=$(pwd):$FW_SEARCH_PATH -->
-
-You can get an output file: gen_protoDune_pion_7p0GeV_mono_g4.root. Here is the eventdump information for this simulated event, where the `G4:ionization:vector<sim::SimEnergyDeposit>` is the key information we would like to pass to the Wire-Cell core simulation.
+Once the simulation accomplished, you can dump the event information for the output file `gen_protoDune_pion_7p0GeV_mono_g4.root`. Here, the `G4:ionization:vector<sim::SimEnergyDeposit>` is the data product we want to pass to the Wire-Cell simulation.
 
 ```bash
 Begin processing the 1st record. run: 1 subRun: 0 event: 1 at 13-Aug-2019 13:26:38 CDT
@@ -104,3 +105,5 @@ With the `std::vector<raw::RawDigit>` obtained above, the noise filtering/signal
 ```bash
 lar -n1 -c pgrapher/experiment/pdsp/wcls-nf-sp.fcl gen_protoDune_pion_7p0GeV_mono_g4_wcsim.root
 ```
+Here is the 2D display of the deconvolved charge for the above 7-GeV pion interaction.
+![protoDune-pion-7p0GeV](./img/protoDune_pion_7p0GeV.png)
