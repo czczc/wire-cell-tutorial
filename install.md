@@ -49,7 +49,6 @@ cvmfs_config chksetup
 cvmfs_config probe
 ```
 Now, `dune.osgstorage.org` should be "OK" and the directory should be accessible: `/cvmfs/dune.osgstorage.org/`
-```
 
 <!--
 Alternatively, two files needs to be created in `/etc/cvmfs/default.d/`.
