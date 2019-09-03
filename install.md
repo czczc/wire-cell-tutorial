@@ -37,8 +37,22 @@ cvmfs_config probe
 ```
 , and you should see **three** `Probing ... OK` messages.
 
-(**Optional**) If you also want access to the data in `dune.osgstorage.org`, for example, the photon library in the protoDUNE-SP simulation as will be introduced shortly, it is required to append `dune.osgstorage.org` to `CVMFS_REPOSITORIES` in `/etc/cvmfs/default.local`. Also, two files needs to be created in `/etc/cvmfs/default.d/`.
+(**Optional**) If you also want access to the data in `dune.osgstorage.org`, for example, the photon library in the protoDUNE-SP simulation as will be introduced shortly, it is required to append `dune.osgstorage.org` to `CVMFS_REPOSITORIES` in `/etc/cvmfs/default.local`. Check that the other repositories work:
+```
+cvmfs_config chksetup
+cvmfs_config probe
+```
+The second command may fail on dune.osgstorage.org, we fix that next. 
+```
+cp /cvmfs/config-osg.opensciencegrid.org/etc/cvmfs/domain.d/osgstorage.org.conf /etc/cvmfs/domain.d/
+cvmfs_config chksetup
+cvmfs_config probe
+```
+Now, `dune.osgstorage.org` should be "OK" and the directory should be accessible: `/cvmfs/dune.osgstorage.org/`
+```
 
+<!--
+Alternatively, two files needs to be created in `/etc/cvmfs/default.d/`.
 ```
 # /etc/cvmfs/default.d/60-osg.conf
 #
@@ -55,6 +69,7 @@ CVMFS_FALLBACK_PROXY=http://cvmfsbproxy.cern.ch:3126;http://cvmfsbproxy.fnal.gov
 # /etc/cvmfs/default.d/config-osg.opensciencegrid.org.conf (single line)
 CVMFS_SERVER_URL=http://cvmfs-s1bnl.opensciencegrid.org:8000/cvmfs/@fqrn@;http://cvmfs-s1fnal.opensciencegrid.org:8000/cvmfs/@fqrn@;http://cvmfs-s1goc.opensciencegrid.org:8000/cvmfs/@fqrn@
 ```
+-->
 
 ## Install Singularity
 
