@@ -19,7 +19,8 @@
 - [MicroBooNE Wiki](https://cdcvs.fnal.gov/redmine/projects/uboonecode/wiki/)
 - [ICARUS Wiki](https://cdcvs.fnal.gov/redmine/projects/icaruscode/wiki/)
 
-## Technotes
+## Talks, Papers & Technotes
+- [Collection of Wire-Cell Talks](https://lar.bnl.gov/wire-cell/talks/)
 - [Noise filter](https://arxiv.org/abs/1705.07341): algorithms
 - [Signal processing I](https://arxiv.org/abs/1802.08709): algorithms
 - [Signal processing II](https://arxiv.org/abs/1802.08709): performance
