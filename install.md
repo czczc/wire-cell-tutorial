@@ -21,7 +21,7 @@ sudo cvmfs_config setup
 Create a configuration file at `/etc/cvmfs/default.local` as follows:
 ```bash
 # required, add more if needed.
-CVMFS_REPOSITORIES=larsoft.opensciencegrid.org,uboone.opensciencegrid.org,dune.opensciencegrid.org
+CVMFS_REPOSITORIES=larsoft.opensciencegrid.org,uboone.opensciencegrid.org,dune.opensciencegrid.org,icarus.opensciencegrid.org
 # requires, replace with actual proxy, or just "DIRECT" if none
 CVMFS_HTTP_PROXY="DIRECT"
 # BNL Physics department users may use
