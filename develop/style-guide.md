@@ -45,7 +45,7 @@ There are many tutorials on using `clang-format`, e.g.:
 ## example editor setup
 
 After installing `clang-format`, many editors have extensions to utilize it during editing.
-This could be useful especially for multi-line comments, which `clang-format` can not handel very well after editing.
+This could be useful especially for multi-line comments, which `clang-format` can not handle very well after editing.
 Here we provide examples for some popular editors:
 
 ### Atom
