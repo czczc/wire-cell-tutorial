@@ -30,6 +30,11 @@ module.exports = {
         'sim-track'
       ],
 
+      '/develop/': [
+        'intro',
+        'style-guide',
+      ],
+
       '/': [
         ['intro', 'Preface'],
         'install',
@@ -39,6 +44,7 @@ module.exports = {
         // 'simulation',
         // 'noise',
         // 'decon',
+				['develop/intro', 'Development'],
         'refs',
         ['appendix/software', 'Appendix']
       ]
