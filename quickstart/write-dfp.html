@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Write a Module | Learning Wire-Cell</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    
+    <meta name="description" content="Welcome to Wire-Cell">
+    <link rel="preload" href="/wire-cell-tutorial/assets/css/0.styles.128c0922.css" as="style"><link rel="preload" href="/wire-cell-tutorial/assets/js/app.5026666e.js" as="script"><link rel="preload" href="/wire-cell-tutorial/assets/js/2.334da562.js" as="script"><link rel="preload" href="/wire-cell-tutorial/assets/js/20.57b2d938.js" as="script"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/10.b32cade1.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/11.1a222d86.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/12.39a0e92c.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/13.261015c5.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/14.e4149590.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/15.2038cc74.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/16.3663908a.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/17.2c78e562.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/18.bb8ff3e2.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/19.c83b2481.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/21.15846189.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/22.01edc247.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/23.c301af36.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/24.f8507621.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/3.7936d8d7.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/4.6a8b56bd.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/5.eae422a7.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/6.de8f1759.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/7.30bb9f54.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/8.88a3351a.js"><link rel="prefetch" href="/wire-cell-tutorial/assets/js/9.58a9d70e.js">
+    <link rel="stylesheet" href="/wire-cell-tutorial/assets/css/0.styles.128c0922.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/wire-cell-tutorial/" class="home-link router-link-active"><img src="/wire-cell-tutorial/img/logo.png" alt="Learning Wire-Cell" class="logo"> <span class="site-name can-hide">Learning Wire-Cell</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/wire-cell-tutorial/intro.html" class="nav-link">
+  Main
+</a></div><div class="nav-item"><a href="/wire-cell-tutorial/quickstart/explore-data.html" class="nav-link">
+  Quick starts
+</a></div><div class="nav-item"><a href="/wire-cell-tutorial/appendix/software.html" class="nav-link">
+  Appendix
+</a></div> <a href="https://github.com/czczc/wire-cell-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/wire-cell-tutorial/intro.html" class="nav-link">
+  Main
+</a></div><div class="nav-item"><a href="/wire-cell-tutorial/quickstart/explore-data.html" class="nav-link">
+  Quick starts
+</a></div><div class="nav-item"><a href="/wire-cell-tutorial/appendix/software.html" class="nav-link">
+  Appendix
+</a></div> <a href="https://github.com/czczc/wire-cell-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/wire-cell-tutorial/quickstart/explore-data.html" class="sidebar-link">Explore Real Data</a></li><li><a href="/wire-cell-tutorial/quickstart/examine-graph.html" class="sidebar-link">Examine Program Flow</a></li><li><a href="/wire-cell-tutorial/quickstart/write-dfp.html" class="active sidebar-link">Write a Module</a></li><li><a href="/wire-cell-tutorial/quickstart/sim-track.html" class="sidebar-link">Simulate Tracks</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="write-a-module"><a href="#write-a-module" class="header-anchor">#</a> Write a Module</h1></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/czczc/wire-cell-tutorial/edit/master/quickstart/write-dfp.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">8/7/2019, 3:27:00 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/wire-cell-tutorial/quickstart/examine-graph.html" class="prev">
+        Examine Program Flow
+      </a></span> <span class="next"><a href="/wire-cell-tutorial/quickstart/sim-track.html">
+        Simulate Tracks
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/wire-cell-tutorial/assets/js/app.5026666e.js" defer></script><script src="/wire-cell-tutorial/assets/js/2.334da562.js" defer></script><script src="/wire-cell-tutorial/assets/js/20.57b2d938.js" defer></script>
+  </body>
+</html>
