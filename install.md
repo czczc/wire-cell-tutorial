@@ -93,7 +93,28 @@ git checkout -b v3.0.3  v3.0.3 # or other tags
   make -C ./builddir && \
   sudo make -C ./builddir install
 ```
-
+### Troubleshooting
+Depending on the filesystem, `singularity` might not be able to mount certain drives and will abort with an error message similar to:
+```
+error: can't mount image /proc/self/fd/3: failed to mount squashfs filesystem: invalid argument
+```
+This has been patched from `v3.5.3` onwards, but to force it to work on `v3.0.3`, one can modify the source code by opening: 
+```bash
+$EDITOR ${GOPATH}/src/github.com/sylabs/singularity/internal/pkg/util/fs/mount/mount.go
+```
+and replacing the codeblock:
+```bash
+options = fmt.Sprintf("loop,offset=%d,sizelimit=%d,errors=remount-ro", offset, sizelimit)
+```
+with
+```bash
+options = fmt.Sprintf("loop,offset=%d,sizelimit=%d", offset, sizelimit)
+if fstype == "ext3" {
+        options += ",errors=remount-ro"
+}
+```
+and rebuilding with the `mconfig` command as before. This is because `remount-ro` is an invalid argument to provide while mounting squashfs drives, as squashfs doesn't recognize it. More context is given [here](https://stackoverflow.com/questions/63061424/squashfs-error-when-running-singularity-after-ubuntu-upgrade) 
+ 
 ## Use wcdo
 `wcdo` is a command line tool that provides convenient methods to do stuff with Wire-Cell in a Singularity container. Follow [Brett's instruction](https://github.com/WireCell/wire-cell-singularity/blob/master/wcdo.org) to get started, or see the [next section](workflow) for example workflows.
 
